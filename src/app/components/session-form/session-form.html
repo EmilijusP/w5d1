@@ -1,0 +1,55 @@
+<form (ngSubmit)="onSubmit(sessionForm)" #sessionForm="ngForm">
+    
+    <div style="margin-bottom: 15px;">
+      <label>Session Title *</label><br>
+      <!-- [(ngModel)] sujungia šį inputą su tavo TS kintamuoju (dvipusis ryšys) -->
+      <input 
+        type="text" 
+        name="title" 
+        [(ngModel)]="newSession.title" 
+        required 
+        #titleField="ngModel"
+        style="width: 100%; padding: 8px;"
+      >
+
+      <div *ngIf="titleField.invalid && titleField.touched" style="color: red; font-size: 12px; margin-top: 5px;">
+        Title is required!
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Abstract</label><br>
+      <textarea 
+        name="abstract" 
+        [(ngModel)]="newSession.abstract" 
+        style="width: 100%; padding: 8px; height: 80px;">
+      </textarea>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Start Time</label><br>
+      <input 
+        type="text" 
+        name="startTime" 
+        [(ngModel)]="newSession.startTime" 
+        style="width: 100%; padding: 8px;"
+      >
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>End Time</label><br>
+      <input 
+        type="text" 
+        name="endTime" 
+        [(ngModel)]="newSession.endTime" 
+        style="width: 100%; padding: 8px;"
+      >
+    </div>
+
+    <button 
+      type="submit" 
+      [disabled]="sessionForm.invalid"
+      style="padding: 10px 15px; background-color: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer;">
+      Save Session
+    </button>
+  </form>

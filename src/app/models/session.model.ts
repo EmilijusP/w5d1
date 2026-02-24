@@ -16,4 +16,4 @@ export interface CreateSession {
   trackId?: number;
 }
 
-export type FormState = 'idle' | 'loading' | 'success' | 'error';
+export type FormState = 'idle' | 'submitting' | 'success' | 'error';
