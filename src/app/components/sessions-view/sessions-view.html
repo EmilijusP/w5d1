@@ -1,0 +1,10 @@
+
+<ul>
+    <li *ngFor="let session of sessions" style="margin: 20px;">
+        <strong>{{ session.title }}</strong>
+        <p>{{ session.abstract }}</p>
+        <small>Start time: {{ session.startTime }}</small>
+        <br>
+        <small>End time: {{ session.endTime }}</small>
+    </li>
+</ul>
