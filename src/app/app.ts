@@ -19,12 +19,15 @@ export class AppComponent {
 
   onSessionCreate(data: CreateSession) {
       this.state = 'submitting';
-      console.log('Session created:', data);
       this.sessions.push({
         ...data,
         id: this.sessions.length + 1
       });
+      console.log('Session created:', data);
       this.state = 'success';
+      setTimeout(() => {
+        this.state = 'idle';
+      }, 1);
   }
 }
 
