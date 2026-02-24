@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CreateSession, FormState, Session } from './models/session.model';
 import { SessionForm } from './components/session-form/session-form';
 import { SessionsView } from "./components/sessions-view/sessions-view";
+import { SessionService } from './services/session.service';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +15,15 @@ import { SessionsView } from "./components/sessions-view/sessions-view";
 })
 export class AppComponent {
 
-  sessions: Session[] = [];
+  private sessionService = inject(SessionService);
+
+  sessions = this.sessionService.sessions;
 
   state: FormState = 'idle';
 
   onSessionCreate(data: CreateSession) {
       this.state = 'submitting';
-      this.sessions.push({
-        ...data,
-        id: this.sessions.length + 1
-      });
+      this.sessionService.addSession(data);
       console.log('Session created:', data);
       this.state = 'success';
       setTimeout(() => {
