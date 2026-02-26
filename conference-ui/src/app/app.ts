@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateSession, FormState, Session } from './models/session.model';
 import { SessionForm } from './components/session-form/session-form';
@@ -19,9 +19,13 @@ export class AppComponent {
   sessions = this.sessionService.getSessions();
   state = this.sessionService.getState();
 
+  ngOnInit() {
+    this.sessionService.loadSessions();
+  }
+
   onSessionCreate(data: CreateSession) {
-      this.sessionService.addSession(data);
-}
+    this.sessionService.addSession(data);
+  }
 }
 
 export { AppComponent as App };
