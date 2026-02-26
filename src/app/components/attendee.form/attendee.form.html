@@ -1,0 +1,62 @@
+
+<form (ngSubmit)="onSubmit()">
+
+    <div style="margin-bottom: 15px;">
+      <label>First Name *</label><br>
+      <input 
+        type="text" 
+        name="firstName" 
+        [(ngModel)]="attendee.firstName" 
+        required 
+        #firstNameField="ngModel"
+        style="width: 100%; padding: 8px;"
+      >
+
+      <div *ngIf="firstNameField.invalid && firstNameField.touched" style="color: red; font-size: 12px; margin-top: 5px;">
+        First Name is required!
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Last Name *</label><br>
+      <input 
+        type="text" 
+        name="lastName" 
+        [(ngModel)]="attendee.lastName" 
+        required 
+        #lastNameField="ngModel"
+        style="width: 100%; padding: 8px;"
+      >
+
+      <div *ngIf="lastNameField.invalid && lastNameField.touched" style="color: red; font-size: 12px; margin-top: 5px;">
+        Last Name is required!
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Username *</label><br>
+      <input 
+        type="text" 
+        name="username" 
+        [(ngModel)]="attendee.username" 
+        required 
+        #usernameField="ngModel"
+        style="width: 100%; padding: 8px;"
+      >
+
+      <div *ngIf="usernameField.invalid && usernameField.touched" style="color: red; font-size: 12px; margin-top: 5px;">
+        Username is required!
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Email *</label><br>
+      <input 
+        type="email" 
+        name="email" 
+        [(ngModel)]="attendee.email" 
+        #emailField="ngModel"
+        style="width: 100%; padding: 8px;"
+      >
+    </div>
+</form>

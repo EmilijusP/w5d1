@@ -1,10 +1,9 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateSession, FormState, Session } from './models/session.model';
 import { SessionForm } from './components/session-form/session-form';
 import { SessionsView } from "./components/sessions-view/sessions-view";
 import { SessionService } from './services/session.service';
-import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',

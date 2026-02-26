@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CreateSession } from '../../models/session.model'; 
 import { FormsModule, NgForm } from '@angular/forms';
-import { form } from '@angular/forms/signals';
 import { CommonModule } from '@angular/common';
 
 @Component({
