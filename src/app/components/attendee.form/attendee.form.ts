@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output, output } from '@angular/core';
 import { CreateAttendee } from '../../models/attendee.model';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-attendee.form',
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './attendee.form.html',
   styleUrl: './attendee.form.css',
 })

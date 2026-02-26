@@ -16,19 +16,12 @@ export class AppComponent {
 
   private sessionService = inject(SessionService);
 
-  sessions = this.sessionService.sessions;
-
-  state: FormState = 'idle';
+  sessions = this.sessionService.getSessions();
+  state = this.sessionService.getState();
 
   onSessionCreate(data: CreateSession) {
-      this.state = 'submitting';
       this.sessionService.addSession(data);
-      console.log('Session created:', data);
-      this.state = 'success';
-      setTimeout(() => {
-        this.state = 'idle';
-      }, 1);
-  }
+}
 }
 
 export { AppComponent as App };

@@ -3,8 +3,7 @@
     <li *ngFor="let session of sessions" style="margin: 20px; cursor: pointer" appHighlight>
         <strong>{{ session.title }}</strong>
         <p *ngIf="session.abstract">{{ session.abstract }}</p>
-        <p *ngIf="session.startTime">Start time: {{ session.startTime }}</p>
-        <p *ngIf="session.endTime">End time: {{ session.endTime }}</p>
+        <p>Schedule: {{ session | sessionTime }}</p>
     </li>
 </ul>
 

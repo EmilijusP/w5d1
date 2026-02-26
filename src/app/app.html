@@ -2,20 +2,20 @@
   
   <h2>Create a New Session</h2>
 
-  <div *ngIf="state === 'idle'">
+  <div *ngIf="state() === 'idle'">
     📝 Please fill out the form below to create a new session.
   </div>
-  <div *ngIf="state === 'submitting'">
+  <div *ngIf="state() === 'submitting'">
     ⏳ Saving session... Please wait.
   </div>
-  <div *ngIf="state === 'success'">
+  <div *ngIf="state() === 'success'">
     ✅ Session successfully created!
   </div>
 
   <app-session-form (sessionCreated)="onSessionCreate($event)" style="margin: 50px;"></app-session-form>
 
   <h2>Existing Sessions</h2>
-  <app-sessions-view [sessions]="sessions"></app-sessions-view>
+  <app-sessions-view [sessions]="sessions()"></app-sessions-view>
 
 
 </div>
