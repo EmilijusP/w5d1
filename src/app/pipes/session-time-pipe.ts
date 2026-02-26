@@ -3,6 +3,7 @@ import { Session } from '../models/session.model';
 
 @Pipe({
   name: 'sessionTime',
+  standalone: true,
 })
 export class SessionTimePipe implements PipeTransform {
 
