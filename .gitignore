@@ -1,44 +1,80 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# ==========================================
+# Angular / Frontend (conference-ui)
+# ==========================================
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+/conference-ui/dist
+/conference-ui/tmp
+/conference-ui/out-tsc
+/conference-ui/bazel-out
 
-# Node
-/node_modules
+# Node dependencies
+node_modules/
 npm-debug.log
 yarn-error.log
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Angular cache and miscellaneous
+.angular/
+.sass-cache/
+/conference-ui/connect.lock
+/conference-ui/coverage
+/conference-ui/libpeerconnection.log
+testem.log
+/conference-ui/typings
+__screenshots__/
 
-# Visual Studio Code
+# ==========================================
+# .NET / Backend (conference-api)
+# ==========================================
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Database and temporary files
+*.db
+*.db-shm
+*.db-wal
+*.tmp
+*.log
+
+# .NET Core specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ==========================================
+# IDEs and System Files (Bendri)
+# ==========================================
+
+# Visual Studio / VS Code
+.vs/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/mcp.json
-.history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
+# JetBrains (IntelliJ, WebStorm, Rider)
+.idea/
 
 # System files
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
