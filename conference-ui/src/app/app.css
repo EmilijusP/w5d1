@@ -1,0 +1,101 @@
+/* CSS Variables for color scheme */
+:root {
+  --aquamarine: #A9FFCB;
+  --aquamarine-dark: #7fe5a6;
+  --raspberry: #DE3C4B;
+  --raspberry-light: #f0606d;
+  --text-dark: #1a1a1a;
+  --text-light: #666666;
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-light: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+div[style*="padding: 20px"] {
+  background: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin: 20px auto;
+  max-width: 900px !important;
+}
+
+h2 {
+  color: var(--text-dark);
+  font-size: 28px;
+  font-weight: 600;
+  margin: 30px 0 20px 0;
+  letter-spacing: -0.5px;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+/* Status Messages */
+div[style*="color: #666"] {
+  background: #f0f4f8;
+  padding: 12px 16px;
+  border-left: 4px solid var(--aquamarine);
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+div[style*="color: blue"] {
+  background: #e3f2fd;
+  padding: 12px 16px;
+  border-left: 4px solid #2196F3;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #1976D2 !important;
+}
+
+div[style*="color: green"] {
+  background: #e8f5e9;
+  padding: 12px 16px;
+  border-left: 4px solid var(--aquamarine-dark);
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: var(--aquamarine-dark) !important;
+}
+
+div[style*="background-color: red"] {
+  background: #ffebee !important;
+  padding: 12px 16px !important;
+  border-left: 4px solid var(--raspberry) !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  margin-bottom: 20px !important;
+  color: var(--raspberry) !important;
+}
+
+/* Component Spacing */
+app-session-form,
+app-attendee-form {
+  display: block;
+  margin: 30px 0;
+}
+
+app-sessions-view,
+app-attendees-view {
+  display: block;
+  margin: 20px 0;
+}

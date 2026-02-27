@@ -2,14 +2,17 @@
   
   <h2>Create a New Session</h2>
 
-  <div *ngIf="sessionState() === 'idle'">
-    📝 Please fill out the form below to create a new session.
+   <div *ngIf="sessionState() === 'idle'" style="color: #666;">
+    📝 Please fill out the form below.
   </div>
-  <div *ngIf="sessionState() === 'submitting'">
-    ⏳ Saving session... Please wait.
+  <div *ngIf="sessionState() === 'submitting'" style="color: blue;">
+    ⏳ Communicating with server...
   </div>
-  <div *ngIf="sessionState() === 'success'">
-    ✅ Session successfully created!
+  <div *ngIf="sessionState() === 'success'" style="color: green; font-weight: bold;">
+    ✅ Operation successful!
+  </div>
+  <div *ngIf="sessionState() === 'error'" style="color: white; background-color: red; padding: 10px; border-radius: 4px;">
+    ❌ Error: Could not reach the API. Please ensure conference-api is running.
   </div>
 
   <app-session-form (sessionCreated)="onSessionCreate($event)" style="margin: 50px;"></app-session-form>
@@ -20,15 +23,17 @@
 
   <h2 style="margin-top: 50px;">Register a New Attendee</h2>
 
-  <div *ngIf="attendeeState() === 'idle'">
+  <div *ngIf="attendeeState() === 'idle'" style="color: #666;">
     📝 Please fill out the form below to register a new attendee.
-
   </div>
-  <div *ngIf="attendeeState() === 'submitting'">
+  <div *ngIf="attendeeState() === 'submitting'" style="color: blue;">
     ⏳ Saving attendee... Please wait.
   </div>
-  <div *ngIf="attendeeState() === 'success'">
+  <div *ngIf="attendeeState() === 'success'" style="color: green; font-weight: bold;">
     ✅ Attendee successfully registered!
+  </div>
+  <div *ngIf="attendeeState() === 'error'" style="color: white; background-color: red; padding: 10px; border-radius: 4px;">
+    ❌ Error: Could not reach the API. Please ensure conference-api is running.
   </div>
   
   <app-attendee-form (attendeeRegistered)="onAttendeeRegister($event)" style="margin: 50px;"></app-attendee-form>
