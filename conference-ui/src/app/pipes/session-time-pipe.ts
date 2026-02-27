@@ -9,9 +9,10 @@ export class SessionTimePipe implements PipeTransform {
 
   transform(session: Session): string | null {
     if (!session.startTime && !session.endTime) {
-      return 'Time TBD';
+      return 'TBD';
     }
-    return `${session.startTime || '???'} - ${session.endTime || '???'}`;
+    
+    return `${session.startTime ? new Date(session.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'TBD'} - ${session.endTime ? new Date(session.endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'TBD'}`;
   }
 
 }

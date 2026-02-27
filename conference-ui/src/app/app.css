@@ -87,7 +87,6 @@ div[style*="background-color: red"] {
   color: var(--raspberry) !important;
 }
 
-/* Component Spacing */
 app-session-form,
 app-attendee-form {
   display: block;
@@ -99,3 +98,26 @@ app-attendees-view {
   display: block;
   margin: 20px 0;
 }
+
+nav {
+  background-color: var(--bg-white);
+  padding: 12px 20px;
+  box-shadow: var(--shadow-light);
+  display: flex;
+  gap: 16px;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 30px;
+}
+
+nav a {
+  color: var(--aquamarine-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 25px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--aquamarine-dark);
+}
+

@@ -51,4 +51,8 @@ export class SessionService {
   getState() {
     return this.state;
   }
+
+  getSessionById(id: number) {
+    return this.httpClient.get<Session>(`${this.apiUrl}/${id}`);
+  }
 }

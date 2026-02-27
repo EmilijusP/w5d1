@@ -1,7 +1,9 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
-import { CreateSession } from '../../models/session.model'; 
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { SessionService } from '../../services/session.service';
+import { CreateSession } from '../../models/session.model';
 
 @Component({
   selector: 'app-session-form',
@@ -11,9 +13,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './session-form.css',
 })
 export class SessionForm {
-  @Output() sessionCreated = new EventEmitter<CreateSession>();
-
   private fb = inject(FormBuilder);
+  private sessionService = inject(SessionService);
+  private router = inject(Router);
 
   sessionForm: FormGroup = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(3)]],
@@ -25,8 +27,20 @@ export class SessionForm {
 
   onSubmit() {
     if (this.sessionForm.valid) {
-      this.sessionCreated.emit(this.sessionForm.value);
+      const sessionData: CreateSession = { ...this.sessionForm.value };
+
+      if (!sessionData.startTime) {
+        delete sessionData.startTime;
+      }
+      if (!sessionData.endTime) {
+        delete sessionData.endTime;
+      }
+
+      this.sessionService.addSession(sessionData);
+      
       this.sessionForm.reset();
+      
+      this.router.navigate(['/sessions']);
     }
   }
 }

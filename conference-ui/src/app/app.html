@@ -1,43 +1,14 @@
-<div style="padding: 20px; font-family: Arial, sans-serif; max-width: 600px;">
+<div style="padding: 20px; font-family: Arial, sans-serif; max-width: 900px; margin: auto;">
   
-  <h2>Create a New Session</h2>
+  <nav>
+    <a routerLink="/sessions">
+      Sessions
+    </a>
+    <a routerLink="/sessions/new">
+      Create Session
+    </a>
+  </nav>
 
-   <div *ngIf="sessionState() === 'idle'" style="color: #666;">
-    📝 Please fill out the form below.
-  </div>
-  <div *ngIf="sessionState() === 'submitting'" style="color: blue;">
-    ⏳ Communicating with server...
-  </div>
-  <div *ngIf="sessionState() === 'success'" style="color: green; font-weight: bold;">
-    ✅ Operation successful!
-  </div>
-  <div *ngIf="sessionState() === 'error'" style="color: white; background-color: red; padding: 10px; border-radius: 4px;">
-    ❌ Error: Could not reach the API. Please ensure conference-api is running.
-  </div>
-
-  <app-session-form (sessionCreated)="onSessionCreate($event)" style="margin: 50px;"></app-session-form>
-
-  <h2>Existing Sessions</h2>
-  <app-sessions-view [sessions]="sessions()"></app-sessions-view>
-
-
-  <h2 style="margin-top: 50px;">Register a New Attendee</h2>
-
-  <div *ngIf="attendeeState() === 'idle'" style="color: #666;">
-    📝 Please fill out the form below to register a new attendee.
-  </div>
-  <div *ngIf="attendeeState() === 'submitting'" style="color: blue;">
-    ⏳ Saving attendee... Please wait.
-  </div>
-  <div *ngIf="attendeeState() === 'success'" style="color: green; font-weight: bold;">
-    ✅ Attendee successfully registered!
-  </div>
-  <div *ngIf="attendeeState() === 'error'" style="color: white; background-color: red; padding: 10px; border-radius: 4px;">
-    ❌ Error: Could not reach the API. Please ensure conference-api is running.
-  </div>
-  
-  <app-attendee-form (attendeeRegistered)="onAttendeeRegister($event)" style="margin: 50px;"></app-attendee-form>
-  <app-attendees-view [attendees]="attendees()"></app-attendees-view>
-
+  <router-outlet></router-outlet>
 
 </div>

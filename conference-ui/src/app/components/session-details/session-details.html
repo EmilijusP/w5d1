@@ -1,0 +1,7 @@
+<div *ngIf="session(); let s">
+    <h2>{{ s.title }}</h2>
+    <p><strong>Time:</strong> {{ s | sessionTime }}</p>
+    <p>{{ s.abstract }}</p>
+    <button (click)="goBack()">Back to Sessions List</button>
+</div>
+<div *ngIf="loading()">Kraunama...</div>

@@ -1,15 +1,20 @@
-import { Component, Input } from '@angular/core';
-import { Session } from '../../models/session.model';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router'; // Reikės navigacijai
+import { SessionService } from '../../services/session.service';
 import { Highlight } from '../../directives/highlight';
 import { SessionTimePipe } from '../../pipes/session-time-pipe';
 
 @Component({
   selector: 'app-sessions-view',
-  imports: [CommonModule, Highlight, SessionTimePipe],
+  standalone: true,
+  imports: [CommonModule, Highlight, SessionTimePipe, RouterLink],
   templateUrl: './sessions-view.html',
   styleUrl: './sessions-view.css',
 })
 export class SessionsView {
-  @Input() sessions: Session[] = [];
+  private sessionService = inject(SessionService);
+  
+  // Pasiimame signalą tiesiai iš serviso
+  sessions = this.sessionService.sessions; 
 }
