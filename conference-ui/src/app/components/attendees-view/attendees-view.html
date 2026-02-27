@@ -1,0 +1,13 @@
+<div *ngIf="attendees.length > 0; else noAttendeesTemplate">
+    <ul>
+        <li *ngFor="let attendee of attendees" style="margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <strong>{{ attendee.firstName }} {{ attendee.lastName }}</strong> ({{ attendee.username }})
+            <p *ngIf="attendee.email">Email: {{ attendee.email }}</p>
+        </li>
+    </ul>
+</div>
+
+<ng-template #noAttendeesTemplate>
+    <p>No attendees registered yet. Please add an attendee using the form above.</p>
+</ng-template>
+

@@ -20,4 +20,22 @@ describe('AttendeeForm', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('emits attendeeRegistered when submitted with valid data', () => {
+    vi.spyOn(component.attendeeRegistered, 'emit');
+    component.attendeeForm.setValue({
+      firstName: 'Alice',
+      lastName: 'Smith',
+      username: 'asmith',
+      email: 'alice@example.com',
+    });
+
+    component.onSubmit();
+    expect(component.attendeeRegistered.emit).toHaveBeenCalledWith({
+      firstName: 'Alice',
+      lastName: 'Smith',
+      username: 'asmith',
+      email: 'alice@example.com',
+    });
+  });
 });

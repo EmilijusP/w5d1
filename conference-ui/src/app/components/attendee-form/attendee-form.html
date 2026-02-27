@@ -1,0 +1,47 @@
+
+<form [formGroup]="attendeeForm" (ngSubmit)="onSubmit()">
+  <div style="margin-bottom: 15px;">
+    <label>First Name *</label><br>
+    <input type="text" formControlName="firstName" style="width: 100%; padding: 8px;">
+    
+    <div *ngIf="attendeeForm.get('firstName')?.invalid && attendeeForm.get('firstName')?.touched" 
+         style="color: red; font-size: 12px; margin-top: 5px;">
+      First name is required (min 2 chars).
+    </div>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>Last Name *</label><br>
+    <input type="text" formControlName="lastName" style="width: 100%; padding: 8px;">
+    
+    <div *ngIf="attendeeForm.get('lastName')?.invalid && attendeeForm.get('lastName')?.touched" 
+         style="color: red; font-size: 12px; margin-top: 5px;">
+      Last name is required (min 2 chars).
+    </div>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>Username *</label><br>
+    <input type="text" formControlName="username" style="width: 100%; padding: 8px;">
+    
+    <div *ngIf="attendeeForm.get('username')?.invalid && attendeeForm.get('username')?.touched" 
+         style="color: red; font-size: 12px; margin-top: 5px;">
+      Username is required (min 3 chars).
+    </div>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>Email</label><br>
+    <input type="email" formControlName="email" style="width: 100%; padding: 8px;">
+    
+    <div *ngIf="attendeeForm.get('email')?.invalid && attendeeForm.get('email')?.touched" 
+         style="color: red; font-size: 12px; margin-top: 5px;">
+      Please enter a valid email address.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="attendeeForm.invalid"
+    style="padding: 10px 15px; background-color: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer;">
+    Create Attendee
+  </button>
+</form>

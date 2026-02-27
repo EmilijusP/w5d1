@@ -2,13 +2,13 @@
   
   <h2>Create a New Session</h2>
 
-  <div *ngIf="state() === 'idle'">
+  <div *ngIf="sessionState() === 'idle'">
     📝 Please fill out the form below to create a new session.
   </div>
-  <div *ngIf="state() === 'submitting'">
+  <div *ngIf="sessionState() === 'submitting'">
     ⏳ Saving session... Please wait.
   </div>
-  <div *ngIf="state() === 'success'">
+  <div *ngIf="sessionState() === 'success'">
     ✅ Session successfully created!
   </div>
 
@@ -16,6 +16,23 @@
 
   <h2>Existing Sessions</h2>
   <app-sessions-view [sessions]="sessions()"></app-sessions-view>
+
+
+  <h2 style="margin-top: 50px;">Register a New Attendee</h2>
+
+  <div *ngIf="attendeeState() === 'idle'">
+    📝 Please fill out the form below to register a new attendee.
+
+  </div>
+  <div *ngIf="attendeeState() === 'submitting'">
+    ⏳ Saving attendee... Please wait.
+  </div>
+  <div *ngIf="attendeeState() === 'success'">
+    ✅ Attendee successfully registered!
+  </div>
+  
+  <app-attendee-form (attendeeRegistered)="onAttendeeRegister($event)" style="margin: 50px;"></app-attendee-form>
+  <app-attendees-view [attendees]="attendees()"></app-attendees-view>
 
 
 </div>

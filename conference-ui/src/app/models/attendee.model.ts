@@ -13,3 +13,5 @@ export interface CreateAttendee {
     username: string;
     email?: string;
 }
+
+export type FormState = 'idle' | 'submitting' | 'success' | 'error';
