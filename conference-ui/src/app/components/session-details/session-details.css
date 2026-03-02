@@ -1,0 +1,46 @@
+
+/* Style the session-details component */
+div[style*="color: var(--aquamarine)"] {
+  background: #e0f7fa;
+    padding: 12px 16px;
+    border-left: 4px solid var(--aquamarine);
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: var(--aquamarine-dark) !important;
+}
+
+div[style*="color: var(--raspberry)"] {
+  background: #ffebee;
+    padding: 12px 16px;
+    border-left: 4px solid var(--raspberry);
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: var(--raspberry) !important;
+}
+
+h2 {
+  color: var(--aquamarine-dark);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+p {
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 12px 0;
+}
+
+button {
+  background: linear-gradient(135deg, var(--aquamarine) 0%, var(--aquamarine-dark) 100%);
+  color: var(--text-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

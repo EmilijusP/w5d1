@@ -12,7 +12,7 @@ import { SessionTimePipe } from '../../pipes/session-time-pipe';
   templateUrl: './session-details.html',
   styleUrl: './session-details.css',
 })
-export class SessionDetailsComponent implements OnInit {
+export class SessionDetails implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private sessionService = inject(SessionService);
